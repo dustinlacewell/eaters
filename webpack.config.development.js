@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { outputConfig, copyPluginPatterns, entryConfig, devServer } = require("./env.config");
 
-module.exports = (env, options) => 
+module.exports = (env, options) =>
 {
     return {
         mode: options.mode,
@@ -65,7 +65,12 @@ module.exports = (env, options) =>
                 },
             ],
         },
-        resolve: { extensions: [".tsx", ".ts", ".js"] },
+        resolve: {
+            extensions: [".tsx", ".ts", ".js"],
+            alias: {
+                'three/.*$': 'three',
+            },
+        },
         output: {
             filename: "js/[name].bundle.js",
             path: path.resolve(__dirname, outputConfig.destPath),

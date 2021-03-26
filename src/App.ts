@@ -1,6 +1,7 @@
 import THREE, { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, TextureLoader, Vector3, WebGLRenderer } from "three";
 import { GUI } from 'dat.gui';
 import Grid from "./Grid";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 export class App
@@ -9,6 +10,7 @@ export class App
     private scene: Scene;
     private grid: Grid;
     private renderer: WebGLRenderer;
+    private controls: OrbitControls;
 
     /**
      * Based off the three.js docs: https://threejs.org/examples/?q=cube#webgl_geometry_cube
@@ -18,6 +20,7 @@ export class App
         this.scene = new Scene();
         this.camera = this.setupCamera();
         this.renderer = this.setupRenderer();
+        this.controls = this.setupControls();
         this.setupGUI();
         this.grid = this.setupGrid();
         this.animate();
@@ -43,6 +46,10 @@ export class App
         camera.position.z = 400;
         window.addEventListener("resize", this.onWindowResize.bind(this), false);
         return camera;
+    }
+
+    private setupControls() {
+        return new OrbitControls(this.camera, this.renderer.domElement );
     }
 
     private setupGUI() {
