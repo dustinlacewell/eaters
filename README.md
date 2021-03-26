@@ -12,8 +12,8 @@ An attempt to use genetic algorithms to breed virtual creatures.
 Get up and running with these simple steps:
 
 1. Clone the project
-2. Run `npm install`
-3. Run `npm run dev`
+2. Run `yarn install`
+3. Run `yarn dev`
 
 
 ## Configuration
