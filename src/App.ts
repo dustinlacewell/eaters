@@ -1,4 +1,6 @@
 import THREE, { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, TextureLoader, WebGLRenderer } from "three";
+import { GUI } from 'dat.gui';
+
 
 export class App
 {
@@ -31,9 +33,20 @@ export class App
 
         document.body.appendChild(this.renderer.domElement);
 
+        this.setupGUI();
+
         window.addEventListener("resize", this.onWindowResize.bind(this), false);
 
         this.animate();
+    }
+
+    private setupGUI() {
+        const gui = new GUI()
+        const cubeFolder = gui.addFolder("Cube")
+        cubeFolder.add(this.mesh.position, "x", -50, 50, 0.1)
+        cubeFolder.add(this.mesh.position, "y", -50, 50, 0.1)
+        cubeFolder.add(this.mesh.position, "z", -50, 50, 0.1)
+        cubeFolder.open()
     }
 
     private onWindowResize(): void
