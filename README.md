@@ -1,14 +1,11 @@
-![Logo](https://user-images.githubusercontent.com/6104940/111038514-52a0f700-8421-11eb-824e-5f2d2d125005.png)
+# Three.js Genetic Algorithm Experiment
 
-# Three.js TypeScript Webpack Starter
-
-A starter project for using Three.js, TypeScript, SCSS and Webpack.
+An attempt to use genetic algorithms to breed virtual creatures.
 
 ## Features
 - Webpack 5 + HMR
 - TypeScript + Three.js
-- SCSS + Autoprefixing 
-
+- SCSS + Autoprefixing
 
 ## 🚀 Getting Started
 
